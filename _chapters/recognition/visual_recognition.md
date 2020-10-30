@@ -188,7 +188,7 @@ by minimizing the prediction error on the training set.
 **Testing**: apply
 [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image31.png" style="height:0.15278in" />](https://www.codecogs.com/eqnedit.php?latex=f#0)
 to a never before seen test example
-[<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image5.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
+[<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image5.png" style="width:0.16667in;height:0.16667in" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
 and output predicted value
 [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image33.png" style="width:0.61111in;height:0.16667in" />](https://www.codecogs.com/eqnedit.php?latex=y%20%3D%20f(x)#0).
 
@@ -246,17 +246,17 @@ is a 3D analogue of the 2D version above.
 **Algorithm (testing):**
 
 1.  We are given a new test point
-    [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image4.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
+    [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image4.png" style="width:0.16667in;height:0.16667in" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
 
 2.  Compute distance to all training data points.
 
 3.  Select
     [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image8.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
     training points closest to
-    [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image6.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
+    [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image6.png" style="width:0.16667in;height:0.16667in" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
 
 4.  Assign
-    [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image21.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
+    [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image21.png" style="width:0.16667in;height:0.16667in" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
     to label
     [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image17.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y#0)
     that is most common among the
@@ -622,6 +622,7 @@ evaluate the algorithm’s performance.
 
   -Classification accuracy for certain images can vary significantly
   based on the feature extraction method used.
+
 
 
 
