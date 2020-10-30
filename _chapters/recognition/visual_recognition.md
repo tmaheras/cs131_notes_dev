@@ -56,14 +56,14 @@ mimic human vision capabilities.
 Tasks
 
 1.  **Classification.** Classify an entire image as belonging to a
-    > certain category or not (e.g. does it contain a particular object
-    > or not).
+    certain category or not (e.g. does it contain a particular object
+    or not).
 
 2.  **Detection.** Identifying if some object is in the image, and where
-    > it is in the image. Essentially, this task is a combination of
-    > classification and localization and can be more sophisticated by
-    > detecting object semantic and geometric attributes such as
-    > relative distances and sizes.
+    it is in the image. Essentially, this task is a combination of
+    classification and localization and can be more sophisticated by
+    detecting object semantic and geometric attributes such as
+    relative distances and sizes.
 
     -   Applications:
 
@@ -74,16 +74,16 @@ Tasks
         -   Assistive Driving
 
 3.  **Single Instance Recognition.** Recognizing whether a particular
-    > instance of an object exists in the image and where in the image
-    > is it located.
+    instance of an object exists in the image and where in the image
+    is it located.
 
 -   Applications:
 
     -   Landmark Detection and GPS
 
 1.  **Activity or Event Recognition.** Being able to recognize what is
-    > happening in an image and what activities are the subjects of the
-    > image engaged in.
+    happening in an image and what activities are the subjects of the
+    image engaged in.
 
 -   Applications:
 
@@ -103,51 +103,51 @@ objects, estimate semantic attributes and classify objects. These
 challenges include:
 
 1.  **A large number of categories for object classification.** For
-    > example, ImageNet, a large dataset for object recognition,
-    > contains over 14M images and over 20k categories
+    example, ImageNet, a large dataset for object recognition,
+    contains over 14M images and over 20k categories
 
 <img src="{{ site.baseurl }}/assets/images/media/image44.png" style="width:2.76827in;height:2.02261in" />
 
 1.  **Viewpoint Variation:** The same image will appear to look quite
-    > different depending on the angle at which it was taken. As shown
-    > below, the geometric positions of the statue’s facial features
-    > vary greatly depending on the position of the camera.
+    different depending on the angle at which it was taken. As shown
+    below, the geometric positions of the statue’s facial features
+    vary greatly depending on the position of the camera.
 
 <img src="{{ site.baseurl }}/assets/images/media/image47.png" style="width:3.52747in;height:2.07851in" />
 
 1.  **Illumination:** The position, intensity and color of the light
-    > will impact how an object looks
+    will impact how an object looks
 
 <img src="{{ site.baseurl }}/assets/images/media/image46.png" style="width:3.22396in;height:1.26394in" />
 
 1.  **Scale:** It is challenging to estimate and adjust for scale due to
-    > the location of the camera, differences in size of other objects
-    > in the image and instances of the same object category may vary
-    > greatly in size
+    the location of the camera, differences in size of other objects
+    in the image and instances of the same object category may vary
+    greatly in size
 
 > <img src="{{ site.baseurl }}/assets/images/media/image34.png" style="width:1.72396in;height:2.30255in" />
 
 1.  **Deformation:** An object may have certain characteristics that
-    > make its body not rigid which may result in the object’s shape or
-    > patterns differing between images. For example, a cat does not
-    > have a rigid body and may take many different shapes
+    make its body not rigid which may result in the object’s shape or
+    patterns differing between images. For example, a cat does not
+    have a rigid body and may take many different shapes
 
 <img src="{{ site.baseurl }}/assets/images/media/image14.jpg" style="width:1.56609in;height:2.08812in" /><img src="{{ site.baseurl }}/assets/images/media/image39.png" style="width:1.62769in;height:2.0777in" />
 
 1.  **Occlusion:** Objects are covered by other objects in an image and
-    > are not fully visible
+    are not fully visible
 
 <img src="{{ site.baseurl }}/assets/images/media/image45.png" style="width:1.81652in;height:1.63021in" />
 
 1.  **Background Clutter:** For objects that blend in with the
-    > background, it is difficult to segment and accurately classify the
-    > object
+    background, it is difficult to segment and accurately classify the
+    object
 
 > <img src="{{ site.baseurl }}/assets/images/media/image42.png" style="width:2.33147in;height:1.65104in" />
 
 1.  **Intra-Class Variation:** Instances within the same class can look
-    > quite different from each other and the computer vision algorithms
-    > must be able to account for this variation
+    quite different from each other and the computer vision algorithms
+    must be able to account for this variation
 
 <img src="{{ site.baseurl }}/assets/images/media/image43.png" style="width:2.30208in;height:1.43188in" />
 
@@ -220,29 +220,29 @@ is a 3D analogue of the 2D version above.
 **Algorithm (training):**
 
 1.  Store all training data points
-    > [<img src="{{ site.baseurl }}/assets/images/media/image30.png" style="width:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=x_i#0)
-    > with their corresponding category labels
-    > [<img src="{{ site.baseurl }}/assets/images/media/image22.png" style="width:0.11111in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y_i#0)
+    [<img src="{{ site.baseurl }}/assets/images/media/image30.png" style="width:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=x_i#0)
+    with their corresponding category labels
+    [<img src="{{ site.baseurl }}/assets/images/media/image22.png" style="width:0.11111in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y_i#0)
 
 **Algorithm (testing):**
 
 1.  We are given a new test point
-    > [<img src="{{ site.baseurl }}/assets/images/media/image17.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
+    [<img src="{{ site.baseurl }}/assets/images/media/image17.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
 
 2.  Compute distance to all training data points.
 
 3.  Select
-    > [<img src="{{ site.baseurl }}/assets/images/media/image23.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
-    > training points closest to
-    > [<img src="{{ site.baseurl }}/assets/images/media/image3.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
+    [<img src="{{ site.baseurl }}/assets/images/media/image23.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
+    training points closest to
+    [<img src="{{ site.baseurl }}/assets/images/media/image3.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
 
 4.  Assign
-    > [<img src="{{ site.baseurl }}/assets/images/media/image31.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
-    > to label
-    > [<img src="{{ site.baseurl }}/assets/images/media/image5.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y#0)
-    > that is most common among the
-    > [<img src="{{ site.baseurl }}/assets/images/media/image7.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
-    > nearest neighbors.
+    [<img src="{{ site.baseurl }}/assets/images/media/image31.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
+    to label
+    [<img src="{{ site.baseurl }}/assets/images/media/image5.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y#0)
+    that is most common among the
+    [<img src="{{ site.baseurl }}/assets/images/media/image7.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
+    nearest neighbors.
 
 **Distance measurement** (one example)**:**
 
@@ -282,10 +282,10 @@ However, it is important to understand the drawbacks and challenges.
 **<u>Choosing k</u>**
 
 -   If k is too small, the decisions may be too sensitive to noisy data
-    > points. For example, a training sample may have the wrong label.
+    points. For example, a training sample may have the wrong label.
 
 -   If k is too large, the neighborhood may include points from other
-    > classes.
+    classes.
 
 Ex: Boundaries that can be obtained by changing the value of k from 1 to
 15 on a dataset with 3 classes.
@@ -309,8 +309,8 @@ So how do we choose k? The solution is **cross validation.**
 -   For each value of k in the nearest neighbor algorithm:
 
     -   Create multiple train/test splits of the data. By creating
-        > different sets of training and testing data, we create
-        > multiple scenarios under which to validate our algorithm.
+        different sets of training and testing data, we create
+        multiple scenarios under which to validate our algorithm.
 
     -   Measure performance for each split.
 
@@ -338,12 +338,12 @@ Solve this by normalizing vectors to be of unit length
 > <img src="{{ site.baseurl }}/assets/images/media/image15.png" style="width:4.7389in;height:2.88677in" />
 
 1.  Given a training set of images for which I have labels that are
-    > known...
+    known...
 
 2.  And a new test set for which to predict the labels...
 
 3.  How well does the model I train on the training data generalizes
-    > from that data into the test set?
+    from that data into the test set?
 
 > *What’s the error of my classifier in the testing set after I have
 > trained in the training set?*
@@ -357,22 +357,22 @@ Solve this by normalizing vectors to be of unit length
 Two Components of Generalization Error:
 
 -   **Bias:** *how much the average model over all training sets differ
-    > from the true model?*
+    from the true model?*
 
 -   **Variance**: *how much models estimated from different training
-    > sets differ from each other*
+    sets differ from each other*
 
 These result in:
 
 -   **Underfitting**: *model is too “simple” to represent all the
-    > relevant class characteristics*
+    relevant class characteristics*
 
     -   High bias and low variance
 
     -   High training error and high test error
 
 -   **Overfitting:** *model is too “complex” and fits irrelevant
-    > characteristics (noise) in the data*
+    characteristics (noise) in the data*
 
     -   Low bias and high variance
 
@@ -419,10 +419,10 @@ Suppose we are fitting an equation to the red points in this plot:
 <!-- -->
 
 -   *A model with too MANY parameters is INACCURATE because of a large
-    > variance.*
+    variance.*
 
     -   *Too sensitive to the specific training set we are using, and
-        > therefore, a very large variance.*
+        therefore, a very large variance.*
 
 **Bias versus Variance Tradeoff**
 
@@ -456,7 +456,7 @@ Best explained by this plot:
 -   *Bias:* due to over-simplifications
 
 -   *Variance:* due to inability to perfectly estimate parameters from
-    > limited data
+    limited data
 
 **How to reduce these errors?:**
 
@@ -516,18 +516,18 @@ image classifier.
 The pipeline contains the following steps:
 
 1.  First, we ingest a collection of training images and extract image
-    > features from them
+    features from them
 
 2.  We train the classifier using the image features of the images as
-    > well as their (ground-truth) training labels.
+    well as their (ground-truth) training labels.
 
 3.  After training this classifier, we can now use it to predict
-    > classifications for unseen testing images:
+    classifications for unseen testing images:
 
     1.  First, we extract features from the test images
 
     2.  Then we feed those features to our trained classifier to output
-        > the prediction for the classification of the object.
+        the prediction for the classification of the object.
 
 This pipeline is illustrated below:
 
@@ -539,8 +539,8 @@ Here are a few different methods for extracting these image features
 from training and testing images:
 
 -   Extracting color features, for example by creating a color histogram
-    > to represent the frequency with which each color appears in the
-    > image.
+    to represent the frequency with which each color appears in the
+    image.
 
     -   These features are translation, scale, and rotation invariant
 
@@ -549,12 +549,12 @@ from training and testing images:
 -   Using features that capture the object’s shape
 
     -   These features are also translation and rotation invariant, but
-        > not occlusion invariant
+        not occlusion invariant
 
 -   Extracting features that capture *local* shape
 
     -   This can be done with keypoint detection, followed by extracting
-        > the shape of each keypoint
+        the shape of each keypoint
 
     -   Such features are only translation and scale invariant
 
