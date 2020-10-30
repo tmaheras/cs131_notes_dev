@@ -70,7 +70,6 @@ References:
 ============================================
 
 **<u>12.1.1 Visual Recognition Tasks and Applications</u>**
-===========================================================
 
 In general, the goal is to design an artificial visual system that can
 mimic human vision capabilities. The following are some tasks that can
