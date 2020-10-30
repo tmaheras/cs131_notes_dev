@@ -106,50 +106,50 @@ challenges include:
     > example, ImageNet, a large dataset for object recognition,
     > contains over 14M images and over 20k categories
 
-<img src="media/image44.png" style="width:2.76827in;height:2.02261in" />
+<img src="{{ site.baseurl }}/assets/images/media/image44.png" style="width:2.76827in;height:2.02261in" />
 
 1.  **Viewpoint Variation:** The same image will appear to look quite
     > different depending on the angle at which it was taken. As shown
     > below, the geometric positions of the statue’s facial features
     > vary greatly depending on the position of the camera.
 
-<img src="media/image47.png" style="width:3.52747in;height:2.07851in" />
+<img src="{{ site.baseurl }}/assets/images/media/image47.png" style="width:3.52747in;height:2.07851in" />
 
 1.  **Illumination:** The position, intensity and color of the light
     > will impact how an object looks
 
-<img src="media/image46.png" style="width:3.22396in;height:1.26394in" />
+<img src="{{ site.baseurl }}/assets/images/media/image46.png" style="width:3.22396in;height:1.26394in" />
 
 1.  **Scale:** It is challenging to estimate and adjust for scale due to
     > the location of the camera, differences in size of other objects
     > in the image and instances of the same object category may vary
     > greatly in size
 
-> <img src="media/image34.png" style="width:1.72396in;height:2.30255in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image34.png" style="width:1.72396in;height:2.30255in" />
 
 1.  **Deformation:** An object may have certain characteristics that
     > make its body not rigid which may result in the object’s shape or
     > patterns differing between images. For example, a cat does not
     > have a rigid body and may take many different shapes
 
-<img src="media/image14.jpg" style="width:1.56609in;height:2.08812in" /><img src="media/image39.png" style="width:1.62769in;height:2.0777in" />
+<img src="{{ site.baseurl }}/assets/images/media/image14.jpg" style="width:1.56609in;height:2.08812in" /><img src="{{ site.baseurl }}/assets/images/media/image39.png" style="width:1.62769in;height:2.0777in" />
 
 1.  **Occlusion:** Objects are covered by other objects in an image and
     > are not fully visible
 
-<img src="media/image45.png" style="width:1.81652in;height:1.63021in" />
+<img src="{{ site.baseurl }}/assets/images/media/image45.png" style="width:1.81652in;height:1.63021in" />
 
 1.  **Background Clutter:** For objects that blend in with the
     > background, it is difficult to segment and accurately classify the
     > object
 
-> <img src="media/image42.png" style="width:2.33147in;height:1.65104in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image42.png" style="width:2.33147in;height:1.65104in" />
 
 1.  **Intra-Class Variation:** Instances within the same class can look
     > quite different from each other and the computer vision algorithms
     > must be able to account for this variation
 
-<img src="media/image43.png" style="width:2.30208in;height:1.43188in" />
+<img src="{{ site.baseurl }}/assets/images/media/image43.png" style="width:2.30208in;height:1.43188in" />
 
  
 
@@ -158,20 +158,20 @@ challenges include:
 
 **<u>Machine Learning Framework</u>**
 
-<img src="media/image29.png" style="width:2.34896in;height:1.44551in" />
+<img src="{{ site.baseurl }}/assets/images/media/image29.png" style="width:2.34896in;height:1.44551in" />
 
 **Training**: given a *training set* of labeled examples
-[<img src="media/image12.gif" style="width:1.34722in;height:0.16667in" />](https://latex-staging.easygenerator.com/eqneditor/editor.php?latex=%5C%7B(x_1%2Cy_1)%2C%20%E2%80%A6%2C(x_n%2Cy_n)%5C%7D#0)
+[<img src="{{ site.baseurl }}/assets/images/media/image12.gif" style="width:1.34722in;height:0.16667in" />](https://latex-staging.easygenerator.com/eqneditor/editor.php?latex=%5C%7B(x_1%2Cy_1)%2C%20%E2%80%A6%2C(x_n%2Cy_n)%5C%7D#0)
 estimate the prediction function
-[<img src="media/image2.png" style="height:0.15278in" />](https://www.codecogs.com/eqnedit.php?latex=f#0)
+[<img src="{{ site.baseurl }}/assets/images/media/image2.png" style="height:0.15278in" />](https://www.codecogs.com/eqnedit.php?latex=f#0)
 by minimizing the prediction error on the training set.
 
 **Testing**: apply
-[<img src="media/image32.png" style="height:0.15278in" />](https://www.codecogs.com/eqnedit.php?latex=f#0)
+[<img src="{{ site.baseurl }}/assets/images/media/image32.png" style="height:0.15278in" />](https://www.codecogs.com/eqnedit.php?latex=f#0)
 to a never before seen test example
-[<img src="media/image18.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
+[<img src="{{ site.baseurl }}/assets/images/media/image18.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
 and output predicted value
-[<img src="media/image33.png" style="width:0.61111in;height:0.16667in" />](https://www.codecogs.com/eqnedit.php?latex=y%20%3D%20f(x)#0).
+[<img src="{{ site.baseurl }}/assets/images/media/image33.png" style="width:0.61111in;height:0.16667in" />](https://www.codecogs.com/eqnedit.php?latex=y%20%3D%20f(x)#0).
 
 **<u>Classification</u>**
 
@@ -182,17 +182,17 @@ by *decision boundaries*.
 
 Any input image can be mapped as a point in this space: we extract two
 features in this case
-[<img src="media/image9.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_1#0)
+[<img src="{{ site.baseurl }}/assets/images/media/image9.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_1#0)
 and
-[<img src="media/image8.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_2#0)
+[<img src="{{ site.baseurl }}/assets/images/media/image8.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_2#0)
 
-<img src="media/image13.png" style="width:3.18229in;height:2.33062in" />
+<img src="{{ site.baseurl }}/assets/images/media/image13.png" style="width:3.18229in;height:2.33062in" />
 
 **<u>Nearest Neighbor Classifier</u>**
 
 Assign a label of nearest training data point to each test data point.
 
-<img src="media/image11.png" style="width:4.01563in;height:2.06573in" />
+<img src="{{ site.baseurl }}/assets/images/media/image11.png" style="width:4.01563in;height:2.06573in" />
 
 We compare the test instance with every set in the training set. We
 chose an example that is closest in distance to the test image.
@@ -200,75 +200,75 @@ chose an example that is closest in distance to the test image.
 Above process can be seen as partitioning the feature space.
 
 For example, if the input image is represented by two features
-[<img src="media/image16.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_1#0)
+[<img src="{{ site.baseurl }}/assets/images/media/image16.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_1#0)
 and
-[<img src="media/image20.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_2#0).
+[<img src="{{ site.baseurl }}/assets/images/media/image20.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_2#0).
 This process is similar to dividing this space into regions. So if the
 red dots and black dots below are training samples, the boundaries
 represent the area in the plane that is closest to each training sample.
 When we see a new test sample we can map it to one of the boundaries:
 
-<img src="media/image24.png" style="width:3.04688in;height:2.76496in" />
+<img src="{{ site.baseurl }}/assets/images/media/image24.png" style="width:3.04688in;height:2.76496in" />
 
 This same idea works regardless of the dimensionality. The example below
 is a 3D analogue of the 2D version above.
 
-<img src="media/image1.png" style="width:2.79688in;height:3.00405in" />
+<img src="{{ site.baseurl }}/assets/images/media/image1.png" style="width:2.79688in;height:3.00405in" />
 
 **<u>K-nearest neighbors</u>**
 
 **Algorithm (training):**
 
 1.  Store all training data points
-    > [<img src="media/image30.png" style="width:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=x_i#0)
+    > [<img src="{{ site.baseurl }}/assets/images/media/image30.png" style="width:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=x_i#0)
     > with their corresponding category labels
-    > [<img src="media/image22.png" style="width:0.11111in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y_i#0)
+    > [<img src="{{ site.baseurl }}/assets/images/media/image22.png" style="width:0.11111in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y_i#0)
 
 **Algorithm (testing):**
 
 1.  We are given a new test point
-    > [<img src="media/image17.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
+    > [<img src="{{ site.baseurl }}/assets/images/media/image17.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
 
 2.  Compute distance to all training data points.
 
 3.  Select
-    > [<img src="media/image23.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
+    > [<img src="{{ site.baseurl }}/assets/images/media/image23.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
     > training points closest to
-    > [<img src="media/image3.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
+    > [<img src="{{ site.baseurl }}/assets/images/media/image3.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
 
 4.  Assign
-    > [<img src="media/image31.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
+    > [<img src="{{ site.baseurl }}/assets/images/media/image31.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
     > to label
-    > [<img src="media/image5.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y#0)
+    > [<img src="{{ site.baseurl }}/assets/images/media/image5.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y#0)
     > that is most common among the
-    > [<img src="media/image7.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
+    > [<img src="{{ site.baseurl }}/assets/images/media/image7.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
     > nearest neighbors.
 
 **Distance measurement** (one example)**:**
 
 -   Euclidean distance:
 
-> [<img src="media/image38.png" style="width:2.04167in;height:0.61111in" />](https://www.codecogs.com/eqnedit.php?latex=d(x_n%2Cx_m)%20%3D%20%5Csqrt%7B%5Csum_%7Bj%3D1%7D%5E%7BD%7D%20(x_n%5Ej%20-%20x_m%5Ej)%7D#0)
+> [<img src="{{ site.baseurl }}/assets/images/media/image38.png" style="width:2.04167in;height:0.61111in" />](https://www.codecogs.com/eqnedit.php?latex=d(x_n%2Cx_m)%20%3D%20%5Csqrt%7B%5Csum_%7Bj%3D1%7D%5E%7BD%7D%20(x_n%5Ej%20-%20x_m%5Ej)%7D#0)
 
 Consider the following as training samples.
 
-> <img src="media/image4.png" style="width:2.86864in;height:2.39658in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image4.png" style="width:2.86864in;height:2.39658in" />
 
 So if
-[<img src="media/image10.png" style="width:0.375in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k%20%3D%201#0),
+[<img src="{{ site.baseurl }}/assets/images/media/image10.png" style="width:0.375in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k%20%3D%201#0),
 and black point is our test sample, we select the closest neighbor and
 assign it a classification of red cross:
 
-> <img src="media/image21.png" style="width:3.07813in;height:2.70323in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image21.png" style="width:3.07813in;height:2.70323in" />
 
 Similarly, if
-[<img src="media/image19.png" style="width:0.375in;height:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=k%20%3D%203#0),
+[<img src="{{ site.baseurl }}/assets/images/media/image19.png" style="width:0.375in;height:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=k%20%3D%203#0),
 we extract the 3 nearest neighbors. Since now we have green circles and
 red crosses we select the classification with the most common label. In
 this case there’s 3 green circles and 1 red cross so we assign a
 classification of green circle this time.
 
-> <img src="media/image27.png" style="width:2.5096in;height:2.20246in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image27.png" style="width:2.5096in;height:2.20246in" />
 
 The decision boundaries produced by k-nearest neighbors are directly
 established from the data. The algorithm is very flexible in capturing
@@ -290,13 +290,13 @@ However, it is important to understand the drawbacks and challenges.
 Ex: Boundaries that can be obtained by changing the value of k from 1 to
 15 on a dataset with 3 classes.
 
-<img src="media/image37.png" style="width:6.05729in;height:2.75684in" />
+<img src="{{ site.baseurl }}/assets/images/media/image37.png" style="width:6.05729in;height:2.75684in" />
 
 > Note that when k=1, the decision boundaries are highly complex.
 > Whereas when k=15, the boundaries are simpler. This is usually good
 > because it means they aren’t overly sensitive to noise in the data.
 
-<img src="media/image41.png" style="width:4.93229in;height:3.50001in" />
+<img src="{{ site.baseurl }}/assets/images/media/image41.png" style="width:4.93229in;height:3.50001in" />
 
 Decreasing k yields more complex decision boundaries, producing smaller
 regions. More complex models yield smaller train error, but test error
@@ -318,7 +318,7 @@ So how do we choose k? The solution is **cross validation.**
 
 -   Select k with the best average performance.
 
-<img src="media/image40.png" style="width:4.94271in;height:2.46343in" />
+<img src="{{ site.baseurl }}/assets/images/media/image40.png" style="width:4.94271in;height:2.46343in" />
 
 **<u>Euclidean Measurement</u>**
 
@@ -327,7 +327,7 @@ measurement can produce counterintuitive results.
 
 Ex:
 
-<img src="media/image35.png" style="width:5.79688in;height:1.3749in" />
+<img src="{{ site.baseurl }}/assets/images/media/image35.png" style="width:5.79688in;height:1.3749in" />
 
 Solve this by normalizing vectors to be of unit length
 
@@ -335,7 +335,7 @@ Solve this by normalizing vectors to be of unit length
 
 **Generalization:**
 
-> <img src="media/image15.png" style="width:4.7389in;height:2.88677in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image15.png" style="width:4.7389in;height:2.88677in" />
 
 1.  Given a training set of images for which I have labels that are
     > known...
@@ -389,7 +389,7 @@ Suppose we are fitting an equation to the red points in this plot:
 
 -   What models can best fit the true equation?
 
-> <img src="media/image28.png" style="width:4.21354in;height:2.68135in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image28.png" style="width:4.21354in;height:2.68135in" />
 >
 > Linear model?
 
@@ -406,7 +406,7 @@ Suppose we are fitting an equation to the red points in this plot:
 >
 > *It doesn’t have enough flexibility or capacity to fit the data.*
 >
-> <img src="media/image6.png" style="width:4.14089in;height:2.54924in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image6.png" style="width:4.14089in;height:2.54924in" />
 >
 > High degree polynomial model:
 
@@ -428,7 +428,7 @@ Suppose we are fitting an equation to the red points in this plot:
 
 Best explained by this plot:
 
-<img src="media/image26.png" style="width:5.63542in;height:3.57292in" />
+<img src="{{ site.baseurl }}/assets/images/media/image26.png" style="width:5.63542in;height:3.57292in" />
 
 > **Key observations:**
 
@@ -531,7 +531,7 @@ The pipeline contains the following steps:
 
 This pipeline is illustrated below:
 
-<img src="media/image25.png" style="width:4.49479in;height:2.41307in" />
+<img src="{{ site.baseurl }}/assets/images/media/image25.png" style="width:4.49479in;height:2.41307in" />
 
 **Feature Extraction**
 
@@ -572,7 +572,7 @@ classifier is then used to classify each new test image.
 > set. In the example below, the test image would be classified as a
 > blue square:
 >
-> <img src="media/image36.png" style="width:3.67188in;height:1.54075in" />
+> <img src="{{ site.baseurl }}/assets/images/media/image36.png" style="width:3.67188in;height:1.54075in" />
 
 **Performance Evaluation**
 
@@ -584,3 +584,4 @@ evaluate the algorithm’s performance.
 >
 > -Classification accuracy for certain images can vary significantly
 > based on the feature extraction method used.
+
