@@ -320,4 +320,4 @@ After labeling the testing examples using the classifier, we can evaluate the al
 -Classification accuracy for certain images can vary significantly based on the feature extraction method used.
 
 
-
+edit
