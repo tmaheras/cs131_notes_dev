@@ -3,381 +3,584 @@ title: Visual recognition
 keywords: (insert comma-separated keywords here)
 order: 12 # Lecture number for 2020
 ---
+Table of Contents
+-----------------
 
-## Table of Contents
+**12.1 Introduction to Object Recognition**
+-------------------------------------------
 
-## **12.1 Introduction to Object Recognition**
+-   Visual Recognition Tasks and Applications
 
-- Visual Recognition Tasks and Applications
-- Challenges
+-   Challenges
 
-## **12.2 k-Nearest Neighbors**
+**12.2 k-Nearest Neighbors**
+----------------------------
 
-- Machine Learning Framework
-- Nearest Neighbors Classifier
-- K-Nearest Neighbors
-  - Challenges
+-   Machine Learning Framework
 
-- Bias and Variance
-  - Bias Variance Tradeoff
-- No Free Lunch Theorem
+-   Nearest Neighbors Classifier
 
-## **12.3 A Simple Object Recognition Pipeline**
+-   K-Nearest Neighbors
 
-- A Simple Image Classifier
-- Pipeline
-- Feature Extraction
-- Test Image Classification
-- Performance Evaluation
+    -   Challenges
 
-#
+<!-- -->
 
+-   Bias and Variance
 
-# **12.1: Introduction to Object Recognition**
+    -   Bias Variance Tradeoff
 
-**Visual Recognition Tasks and Applications**
+-   No Free Lunch Theorem
 
-In general, the goal is to design an artificial visual system that can mimic human vision capabilities.
+**12.3 A Simple Object Recognition Pipeline**
+---------------------------------------------
+
+-   A Simple Image Classifier
+
+-   Pipeline
+
+-   Feature Extraction
+
+-   Test Image Classification
+
+-   Performance Evaluation
+
+**12.1: Introduction to Object Recognition**
+============================================
+
+**<u>Visual Recognition Tasks and Applications</u>**
+
+In general, the goal is to design an artificial visual system that can
+mimic human vision capabilities.
 
 Tasks
 
-1. **Classification.** Classify an entire image as belonging to a certain category or not (e.g. does it contain a particular object or not).
-2. **Detection.** Identifying if some object is in the image, and where it is in the image. Essentially, this task is a combination of classification and localization and can be more sophisticated by detecting object semantic and geometric attributes such as relative distances and sizes.
+1.  **Classification.** Classify an entire image as belonging to a
+    > certain category or not (e.g. does it contain a particular object
+    > or not).
 
-  - Applications:
-    - Security
-    - Computational Photography
-    - Assistive Driving
+2.  **Detection.** Identifying if some object is in the image, and where
+    > it is in the image. Essentially, this task is a combination of
+    > classification and localization and can be more sophisticated by
+    > detecting object semantic and geometric attributes such as
+    > relative distances and sizes.
 
-1. **Single Instance Recognition.** Recognizing whether a particular instance of an object exists in the image and where in the image is it located.
+    -   Applications:
 
-- Applications:
-  - Landmark Detection and GPS
+        -   Security
 
-1. **Activity or Event Recognition.** Being able to recognize what is happening in an image and what activities are the subjects of the image engaged in.
+        -   Computational Photography
 
-- Applications:
-  - Human-Robot Interaction
-  - Sign Language
-  - Ambient Intelligence
-  - Sport Analysis
+        -   Assistive Driving
 
-**Challenges**
+3.  **Single Instance Recognition.** Recognizing whether a particular
+    > instance of an object exists in the image and where in the image
+    > is it located.
 
-There are many challenges one will encounter when building algorithms that can classify human activities and events, detect and localize objects, estimate semantic attributes and classify objects. These challenges include:
+-   Applications:
 
-1. **A large number of categories for object classification.** For example, ImageNet, a large dataset for object recognition, contains over 14M images and over 20k categories
+    -   Landmark Detection and GPS
 
-![](RackMultipart20201030-4-6br838_html_1a78191c728f59f2.png)
+1.  **Activity or Event Recognition.** Being able to recognize what is
+    > happening in an image and what activities are the subjects of the
+    > image engaged in.
 
-1. **Viewpoint Variation:** The same image will appear to look quite different depending on the angle at which it was taken. As shown below, the geometric positions of the statue&#39;s facial features vary greatly depending on the position of the camera.
+-   Applications:
 
-![](RackMultipart20201030-4-6br838_html_43652a4ac1f63d93.png)
+    -   Human-Robot Interaction
 
-1. **Illumination:** The position, intensity and color of the light will impact how an object looks
+    -   Sign Language
 
-![](RackMultipart20201030-4-6br838_html_bd814cfc3c514019.png)
+    -   Ambient Intelligence
 
-1. **Scale:** It is challenging to estimate and adjust for scale due to the location of the camera, differences in size of other objects in the image and instances of the same object category may vary greatly in size
+    -   Sport Analysis
 
-![](RackMultipart20201030-4-6br838_html_cc00fe7e822a4918.png)
+**<u>Challenges</u>**
 
-1. **Deformation:** An object may have certain characteristics that make its body not rigid which may result in the object&#39;s shape or patterns differing between images. For example, a cat does not have a rigid body and may take many different shapes
+There are many challenges one will encounter when building algorithms
+that can classify human activities and events, detect and localize
+objects, estimate semantic attributes and classify objects. These
+challenges include:
 
-![](RackMultipart20201030-4-6br838_html_6b42d9ba0a0bdcf2.jpg) ![](RackMultipart20201030-4-6br838_html_c62142ccb706ca0e.png)
+1.  **A large number of categories for object classification.** For
+    > example, ImageNet, a large dataset for object recognition,
+    > contains over 14M images and over 20k categories
 
-1. **Occlusion:** Objects are covered by other objects in an image and are not fully visible
+<img src="media/image44.png" style="width:2.76827in;height:2.02261in" />
 
-![](RackMultipart20201030-4-6br838_html_b5c708e172c76cbf.png)
+1.  **Viewpoint Variation:** The same image will appear to look quite
+    > different depending on the angle at which it was taken. As shown
+    > below, the geometric positions of the statue’s facial features
+    > vary greatly depending on the position of the camera.
 
-1. **Background Clutter:** For objects that blend in with the background, it is difficult to segment and accurately classify the object
+<img src="media/image47.png" style="width:3.52747in;height:2.07851in" />
 
-![](RackMultipart20201030-4-6br838_html_8cc6d025ae5a438e.png)
+1.  **Illumination:** The position, intensity and color of the light
+    > will impact how an object looks
 
-1. **Intra-Class Variation:** Instances within the same class can look quite different from each other and the computer vision algorithms must be able to account for this variation
+<img src="media/image46.png" style="width:3.22396in;height:1.26394in" />
 
-![](RackMultipart20201030-4-6br838_html_d763f55885cd20af.png)
+1.  **Scale:** It is challenging to estimate and adjust for scale due to
+    > the location of the camera, differences in size of other objects
+    > in the image and instances of the same object category may vary
+    > greatly in size
 
-#
+> <img src="media/image34.png" style="width:1.72396in;height:2.30255in" />
 
+1.  **Deformation:** An object may have certain characteristics that
+    > make its body not rigid which may result in the object’s shape or
+    > patterns differing between images. For example, a cat does not
+    > have a rigid body and may take many different shapes
 
-# **12.2: k-Nearest Neighbors**
+<img src="media/image14.jpg" style="width:1.56609in;height:2.08812in" /><img src="media/image39.png" style="width:1.62769in;height:2.0777in" />
 
-**Machine Learning Framework**
+1.  **Occlusion:** Objects are covered by other objects in an image and
+    > are not fully visible
 
-![](RackMultipart20201030-4-6br838_html_f6d9cb6bb9ada21e.png)
+<img src="media/image45.png" style="width:1.81652in;height:1.63021in" />
 
-**Training** : given a _training set_ of labeled examples ![](RackMultipart20201030-4-6br838_html_fcd76b1bc5c3250b.gif) estimate the prediction function ![](RackMultipart20201030-4-6br838_html_f476b959a6eeb73f.png) by minimizing the prediction error on the training set.
+1.  **Background Clutter:** For objects that blend in with the
+    > background, it is difficult to segment and accurately classify the
+    > object
 
-**Testing** : apply ![](RackMultipart20201030-4-6br838_html_f476b959a6eeb73f.png) to a never before seen test example ![](RackMultipart20201030-4-6br838_html_93594d5e058ef2e4.png) and output predicted value ![](RackMultipart20201030-4-6br838_html_50636a9d849f37aa.png).
+> <img src="media/image42.png" style="width:2.33147in;height:1.65104in" />
 
-**Classification**
+1.  **Intra-Class Variation:** Instances within the same class can look
+    > quite different from each other and the computer vision algorithms
+    > must be able to account for this variation
+
+<img src="media/image43.png" style="width:2.30208in;height:1.43188in" />
+
+ 
+
+**12.2: k-Nearest Neighbors**
+=============================
+
+**<u>Machine Learning Framework</u>**
+
+<img src="media/image29.png" style="width:2.34896in;height:1.44551in" />
+
+**Training**: given a *training set* of labeled examples
+[<img src="media/image12.gif" style="width:1.34722in;height:0.16667in" />](https://latex-staging.easygenerator.com/eqneditor/editor.php?latex=%5C%7B(x_1%2Cy_1)%2C%20%E2%80%A6%2C(x_n%2Cy_n)%5C%7D#0)
+estimate the prediction function
+[<img src="media/image2.png" style="height:0.15278in" />](https://www.codecogs.com/eqnedit.php?latex=f#0)
+by minimizing the prediction error on the training set.
+
+**Testing**: apply
+[<img src="media/image32.png" style="height:0.15278in" />](https://www.codecogs.com/eqnedit.php?latex=f#0)
+to a never before seen test example
+[<img src="media/image18.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
+and output predicted value
+[<img src="media/image33.png" style="width:0.61111in;height:0.16667in" />](https://www.codecogs.com/eqnedit.php?latex=y%20%3D%20f(x)#0).
+
+**<u>Classification</u>**
 
 Assign input vector to one of two or more classes
 
-Any decision rule divides input space into _decision regions_ separated by _decision boundaries_.
+Any decision rule divides input space into *decision regions* separated
+by *decision boundaries*.
 
-Any input image can be mapped as a point in this space: we extract two features in this case ![](RackMultipart20201030-4-6br838_html_cc374ff06aa07ca2.png) and ![](RackMultipart20201030-4-6br838_html_833327733580003a.png)
+Any input image can be mapped as a point in this space: we extract two
+features in this case
+[<img src="media/image9.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_1#0)
+and
+[<img src="media/image8.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_2#0)
 
-![](RackMultipart20201030-4-6br838_html_c555ebad878f45fb.png)
+<img src="media/image13.png" style="width:3.18229in;height:2.33062in" />
 
-**Nearest Neighbor Classifier**
+**<u>Nearest Neighbor Classifier</u>**
 
 Assign a label of nearest training data point to each test data point.
 
-![](RackMultipart20201030-4-6br838_html_51bff2b1c635554f.png)
+<img src="media/image11.png" style="width:4.01563in;height:2.06573in" />
 
-We compare the test instance with every set in the training set. We chose an example that is closest in distance to the test image.
+We compare the test instance with every set in the training set. We
+chose an example that is closest in distance to the test image.
 
 Above process can be seen as partitioning the feature space.
 
-For example, if the input image is represented by two features ![](RackMultipart20201030-4-6br838_html_cc374ff06aa07ca2.png) and ![](RackMultipart20201030-4-6br838_html_833327733580003a.png). This process is similar to dividing this space into regions. So if the red dots and black dots below are training samples, the boundaries represent the area in the plane that is closest to each training sample. When we see a new test sample we can map it to one of the boundaries:
+For example, if the input image is represented by two features
+[<img src="media/image16.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_1#0)
+and
+[<img src="media/image20.png" style="width:0.13889in" />](https://www.codecogs.com/eqnedit.php?latex=x_2#0).
+This process is similar to dividing this space into regions. So if the
+red dots and black dots below are training samples, the boundaries
+represent the area in the plane that is closest to each training sample.
+When we see a new test sample we can map it to one of the boundaries:
 
-![](RackMultipart20201030-4-6br838_html_a4113ac01f9848fc.png)
+<img src="media/image24.png" style="width:3.04688in;height:2.76496in" />
 
-This same idea works regardless of the dimensionality. The example below is a 3D analogue of the 2D version above.
+This same idea works regardless of the dimensionality. The example below
+is a 3D analogue of the 2D version above.
 
-![](RackMultipart20201030-4-6br838_html_4c6bc9be8930496a.png)
+<img src="media/image1.png" style="width:2.79688in;height:3.00405in" />
 
-**K-nearest neighbors**
+**<u>K-nearest neighbors</u>**
 
 **Algorithm (training):**
 
-1. Store all training data points ![](RackMultipart20201030-4-6br838_html_99e0f0a18e20cbb8.png) with their corresponding category labels ![](RackMultipart20201030-4-6br838_html_58887a01d301a586.png)
+1.  Store all training data points
+    > [<img src="media/image30.png" style="width:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=x_i#0)
+    > with their corresponding category labels
+    > [<img src="media/image22.png" style="width:0.11111in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y_i#0)
 
 **Algorithm (testing):**
 
-1. We are given a new test point ![](RackMultipart20201030-4-6br838_html_93594d5e058ef2e4.png).
-2. Compute distance to all training data points.
-3. Select ![](RackMultipart20201030-4-6br838_html_ef2d436003acbec4.png) training points closest to ![](RackMultipart20201030-4-6br838_html_93594d5e058ef2e4.png).
-4. Assign ![](RackMultipart20201030-4-6br838_html_93594d5e058ef2e4.png) to label ![](RackMultipart20201030-4-6br838_html_fd354eb8f654d5c1.png) that is most common among the ![](RackMultipart20201030-4-6br838_html_ef2d436003acbec4.png) nearest neighbors.
+1.  We are given a new test point
+    > [<img src="media/image17.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
 
-**Distance measurement** (one example) **:**
+2.  Compute distance to all training data points.
 
-- Euclidean distance:
+3.  Select
+    > [<img src="media/image23.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
+    > training points closest to
+    > [<img src="media/image3.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0).
 
-![](RackMultipart20201030-4-6br838_html_1b462a84935b74a0.png)
+4.  Assign
+    > [<img src="media/image31.png" />](https://www.codecogs.com/eqnedit.php?latex=x#0)
+    > to label
+    > [<img src="media/image5.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=y#0)
+    > that is most common among the
+    > [<img src="media/image7.png" style="height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k#0)
+    > nearest neighbors.
+
+**Distance measurement** (one example)**:**
+
+-   Euclidean distance:
+
+> [<img src="media/image38.png" style="width:2.04167in;height:0.61111in" />](https://www.codecogs.com/eqnedit.php?latex=d(x_n%2Cx_m)%20%3D%20%5Csqrt%7B%5Csum_%7Bj%3D1%7D%5E%7BD%7D%20(x_n%5Ej%20-%20x_m%5Ej)%7D#0)
 
 Consider the following as training samples.
 
-![](RackMultipart20201030-4-6br838_html_eed5d6a55ce6303b.png)
+> <img src="media/image4.png" style="width:2.86864in;height:2.39658in" />
 
-So if ![](RackMultipart20201030-4-6br838_html_832fba4ec542b1c6.png), and black point is our test sample, we select the closest neighbor and assign it a classification of red cross:
+So if
+[<img src="media/image10.png" style="width:0.375in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k%20%3D%201#0),
+and black point is our test sample, we select the closest neighbor and
+assign it a classification of red cross:
 
-![](RackMultipart20201030-4-6br838_html_7d67f195590f8d.png)
+> <img src="media/image21.png" style="width:3.07813in;height:2.70323in" />
 
-Similarly, if ![](RackMultipart20201030-4-6br838_html_b8fcb6837eea59f9.png), we extract the 3 nearest neighbors. Since now we have green circles and red crosses we select the classification with the most common label. In this case there&#39;s 3 green circles and 1 red cross so we assign a classification of green circle this time.
+Similarly, if
+[<img src="media/image19.png" style="width:0.375in;height:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=k%20%3D%203#0),
+we extract the 3 nearest neighbors. Since now we have green circles and
+red crosses we select the classification with the most common label. In
+this case there’s 3 green circles and 1 red cross so we assign a
+classification of green circle this time.
 
-![](RackMultipart20201030-4-6br838_html_903ae2b1cc8a8a31.png)
+> <img src="media/image27.png" style="width:2.5096in;height:2.20246in" />
 
-The decision boundaries produced by k-nearest neighbors are directly established from the data. The algorithm is very flexible in capturing complex relations between the training data points, and yet it is one of the simplest classification algorithms. Because it is relatively simple, it is a good option to try first when tackling a classification problem. However, it is important to understand the drawbacks and challenges.
+The decision boundaries produced by k-nearest neighbors are directly
+established from the data. The algorithm is very flexible in capturing
+complex relations between the training data points, and yet it is one of
+the simplest classification algorithms. Because it is relatively simple,
+it is a good option to try first when tackling a classification problem.
+However, it is important to understand the drawbacks and challenges.
 
 **k-Nearest Neighbors Challenges**
 
-**Choosing k**
+**<u>Choosing k</u>**
 
-- If k is too small, the decisions may be too sensitive to noisy data points. For example, a training sample may have the wrong label.
-- If k is too large, the neighborhood may include points from other classes.
+-   If k is too small, the decisions may be too sensitive to noisy data
+    > points. For example, a training sample may have the wrong label.
 
-Ex: Boundaries that can be obtained by changing the value of k from 1 to 15 on a dataset with 3 classes.
+-   If k is too large, the neighborhood may include points from other
+    > classes.
 
-![](RackMultipart20201030-4-6br838_html_d9bb1a4e631bb9af.png)
+Ex: Boundaries that can be obtained by changing the value of k from 1 to
+15 on a dataset with 3 classes.
 
-Note that when k=1, the decision boundaries are highly complex. Whereas when k=15, the boundaries are simpler. This is usually good because it means they aren&#39;t overly sensitive to noise in the data.
+<img src="media/image37.png" style="width:6.05729in;height:2.75684in" />
 
-![](RackMultipart20201030-4-6br838_html_6e1d50c4f0a0aeed.png)
+> Note that when k=1, the decision boundaries are highly complex.
+> Whereas when k=15, the boundaries are simpler. This is usually good
+> because it means they aren’t overly sensitive to noise in the data.
 
-Decreasing k yields more complex decision boundaries, producing smaller regions. More complex models yield smaller train error, but test error tends to be higher. Increasing k yields simpler, smoother decision boundaries (less complex model). We want to choose a k that minimizes testing error.
+<img src="media/image41.png" style="width:4.93229in;height:3.50001in" />
+
+Decreasing k yields more complex decision boundaries, producing smaller
+regions. More complex models yield smaller train error, but test error
+tends to be higher. Increasing k yields simpler, smoother decision
+boundaries (less complex model). We want to choose a k that minimizes
+testing error.
 
 So how do we choose k? The solution is **cross validation.**
 
-- For each value of k in the nearest neighbor algorithm:
-  - Create multiple train/test splits of the data. By creating different sets of training and testing data, we create multiple scenarios under which to validate our algorithm.
-  - Measure performance for each split.
-  - Average performance over all splits.
-- Select k with the best average performance.
+-   For each value of k in the nearest neighbor algorithm:
 
-![](RackMultipart20201030-4-6br838_html_a1ec3509ee183b8.png)
+    -   Create multiple train/test splits of the data. By creating
+        > different sets of training and testing data, we create
+        > multiple scenarios under which to validate our algorithm.
 
-**Euclidean Measurement**
+    -   Measure performance for each split.
 
-When dimensionality of vectors is high, sometimes Euclidean distance measurement can produce counterintuitive results.
+    -   Average performance over all splits.
+
+-   Select k with the best average performance.
+
+<img src="media/image40.png" style="width:4.94271in;height:2.46343in" />
+
+**<u>Euclidean Measurement</u>**
+
+When dimensionality of vectors is high, sometimes Euclidean distance
+measurement can produce counterintuitive results.
 
 Ex:
 
-![](RackMultipart20201030-4-6br838_html_6070fda90b60024d.png)
+<img src="media/image35.png" style="width:5.79688in;height:1.3749in" />
 
 Solve this by normalizing vectors to be of unit length
 
-**Curse of Dimensionality**
+**<u>Curse of Dimensionality</u>**
 
 **Generalization:**
 
-![](RackMultipart20201030-4-6br838_html_84759fc8b65c8a44.png)
+> <img src="media/image15.png" style="width:4.7389in;height:2.88677in" />
 
-1. Given a training set of images for which I have labels that are known...
-2. And a new test set for which to predict the labels...
-3. How well does the model I train on the training data generalizes from that data into the test set?
+1.  Given a training set of images for which I have labels that are
+    > known...
 
-_What&#39;s the error of my classifier in the testing set after I have trained in the training set?_
+2.  And a new test set for which to predict the labels...
 
-**Takeaway:** Can one know beforehand which of the potential classifiers one can use, and will that classifier produce the lowest generalization error or lowest test error in the testing set.
+3.  How well does the model I train on the training data generalizes
+    > from that data into the test set?
+
+> *What’s the error of my classifier in the testing set after I have
+> trained in the training set?*
+>
+> **Takeaway:** Can one know beforehand which of the potential
+> classifiers one can use, and will that classifier produce the lowest
+> generalization error or lowest test error in the testing set.
 
 **Bias and Variance:**
 
 Two Components of Generalization Error:
 
-- **Bias:** _how much the average model over all training sets differ from the true model?_
+-   **Bias:** *how much the average model over all training sets differ
+    > from the true model?*
 
-- **Variance** : _how much models estimated from different training sets differ from each other_
+-   **Variance**: *how much models estimated from different training
+    > sets differ from each other*
 
 These result in:
 
-- **Underfitting** : _model is too &quot;simple&quot; to represent all the relevant class characteristics_
-  - High bias and low variance
-  - High training error and high test error
+-   **Underfitting**: *model is too “simple” to represent all the
+    > relevant class characteristics*
 
-- **Overfitting:** _model is too &quot;complex&quot; and fits irrelevant characteristics (noise) in the data_
-  - Low bias and high variance
-  - Low training error and high test error
+    -   High bias and low variance
 
-To put these ideas into visual context, we will create a simplified case:
+    -   High training error and high test error
+
+-   **Overfitting:** *model is too “complex” and fits irrelevant
+    > characteristics (noise) in the data*
+
+    -   Low bias and high variance
+
+    -   Low training error and high test error
+
+To put these ideas into visual context, we will create a simplified
+case:
 
 Suppose we are fitting an equation to the red points in this plot:
 
-- The True equation is green line
-  - (To be estimated by the red points)
-- What models can best fit the true equation?
+-   The True equation is green line
 
-![](RackMultipart20201030-4-6br838_html_f7d6d14eded36982.png)
+    -   (To be estimated by the red points)
 
-Linear model?
+-   What models can best fit the true equation?
 
-- Too few parameters
-  - two coefficients in the equation
-  - Too simple to fit the red points
-- **Underfitting**
+> <img src="media/image28.png" style="width:4.21354in;height:2.68135in" />
+>
+> Linear model?
 
-_A model with too few parameters is INACCURATE because of a LARGE bias._
+-   Too few parameters
 
-_It doesn&#39;t have enough flexibility or capacity to fit the data._
+    -   two coefficients in the equation
 
-![](RackMultipart20201030-4-6br838_html_d8e95c1759ea4c4c.png)
+    -   Too simple to fit the red points
 
-High degree polynomial model:
+-   **Underfitting**
 
-- Too many parameters.
-  - Our model changes dramatically with each red point
-- **Overfitting**
+> *A model with too few parameters is INACCURATE because of a LARGE
+> bias.*
+>
+> *It doesn’t have enough flexibility or capacity to fit the data.*
+>
+> <img src="media/image6.png" style="width:4.14089in;height:2.54924in" />
+>
+> High degree polynomial model:
 
-- _A model with too MANY parameters is INACCURATE because of a large variance._
-  - _Too sensitive to the specific training set we are using, and therefore, a very large variance._
+-   Too many parameters.
+
+    -   Our model changes dramatically with each red point
+
+-   **Overfitting**
+
+<!-- -->
+
+-   *A model with too MANY parameters is INACCURATE because of a large
+    > variance.*
+
+    -   *Too sensitive to the specific training set we are using, and
+        > therefore, a very large variance.*
 
 **Bias versus Variance Tradeoff**
 
 Best explained by this plot:
 
-![](RackMultipart20201030-4-6br838_html_b13ee7de3bcd315d.png)
+<img src="media/image26.png" style="width:5.63542in;height:3.57292in" />
 
-**Key observations:**
+> **Key observations:**
 
-- The more complex the model, the lower the Bias.
-- The more complex the model, the HIGHER the variance
-- There is a sweet spot between these two.
+-   The more complex the model, the lower the Bias.
 
-We can do model selection to select the model complexity that will obtain the lowest total error. HOWEVER, how do we know what other classifiers have the lowest possible error?
+-   The more complex the model, the HIGHER the variance
+
+-   There is a sweet spot between these two.
+
+> We can do model selection to select the model complexity that will
+> obtain the lowest total error. HOWEVER, how do we know what other
+> classifiers have the lowest possible error?
 
 **No Free Lunch Theorem:**
 
-Unfortunately we can&#39;t really tell beforehand which classifier will have the lowest generalization error.
-
-We can only get generalization through some assumptions.
+> Unfortunately we can’t really tell beforehand which classifier will
+> have the lowest generalization error.
+>
+> We can only get generalization through some assumptions.
 
 **3 Kinds of Errors:**
 
-- _Inherent:_ unavoidable
-- _Bias:_ due to over-simplifications
-- _Variance:_ due to inability to perfectly estimate parameters from limited data
+-   *Inherent:* unavoidable
+
+-   *Bias:* due to over-simplifications
+
+-   *Variance:* due to inability to perfectly estimate parameters from
+    > limited data
 
 **How to reduce these errors?:**
 
-- _Reduce Variance:_
-  - Choose a simpler classifier
-  - Regularize the parameters
-  - Get more training data
-- _Reduce Bias:_
-  - Choose a more complex classifier
-  - Increase the amount of features / parameters
-  - Get more training data
+-   *Reduce Variance:*
+
+    -   Choose a simpler classifier
+
+    -   Regularize the parameters
+
+    -   Get more training data
+
+-   *Reduce Bias:*
+
+    -   Choose a more complex classifier
+
+    -   Increase the amount of features / parameters
+
+    -   Get more training data
 
 **Machine Learning Methods Final Tips:**
 
 Know your data
 
-- How much supervision do you have?
-- How many training examples can you afford?
-- How noisy?
+-   How much supervision do you have?
+
+-   How many training examples can you afford?
+
+-   How noisy?
 
 Know your goal:
 
-- Affects your choices of representation
-- Affects your choices of learning algorithms
-- Affects your choices of evaluation metrics
+-   Affects your choices of representation
 
-_Understand the math behind each machine learning algorithm you are choosing!_
+-   Affects your choices of learning algorithms
 
-#
+-   Affects your choices of evaluation metrics
 
+*Understand the math behind each machine learning algorithm you are
+choosing!*
 
-# **12.3: A Simple Object Recognition Pipeline**
+ 
 
-**A Simple Image Classifier**
+**12.3: A Simple Object Recognition Pipeline**
+==============================================
 
-For this example of an object recognition pipeline, we will use a simple image classifier.
+**<u>A Simple Image Classifier</u>**
 
--We therefore will be using a prediction function that takes feature representations of images as inputs and yields classifications of their contents as outputs.
+For this example of an object recognition pipeline, we will use a simple
+image classifier.
+
+> -We therefore will be using a prediction function that takes feature
+> representations of images as inputs and yields classifications of
+> their contents as outputs.
 
 **Pipeline**
 
 The pipeline contains the following steps:
 
-1. First, we ingest a collection of training images and extract image features from them
-2. We train the classifier using the image features of the images as well as their (ground-truth) training labels.
-3. After training this classifier, we can now use it to predict classifications for unseen testing images:
-  1. First, we extract features from the test images
-  2. Then we feed those features to our trained classifier to output the prediction for the classification of the object.
+1.  First, we ingest a collection of training images and extract image
+    > features from them
+
+2.  We train the classifier using the image features of the images as
+    > well as their (ground-truth) training labels.
+
+3.  After training this classifier, we can now use it to predict
+    > classifications for unseen testing images:
+
+    1.  First, we extract features from the test images
+
+    2.  Then we feed those features to our trained classifier to output
+        > the prediction for the classification of the object.
 
 This pipeline is illustrated below:
 
-![](RackMultipart20201030-4-6br838_html_10df471cf85e2cbe.png)
+<img src="media/image25.png" style="width:4.49479in;height:2.41307in" />
 
 **Feature Extraction**
 
-Here are a few different methods for extracting these image features from training and testing images:
+Here are a few different methods for extracting these image features
+from training and testing images:
 
-- Extracting color features, for example by creating a color histogram to represent the frequency with which each color appears in the image.
-  - These features are translation, scale, and rotation invariant
-  - However, they are not occlusion invariant
-- Using features that capture the object&#39;s shape
-  - These features are also translation and rotation invariant, but not occlusion invariant
-- Extracting features that capture _local_ shape
-  - This can be done with keypoint detection, followed by extracting the shape of each keypoint
-  - Such features are only translation and scale invariant
-- Using filter banks to extract texture-based features
-  - The resulting features are translation invariant
+-   Extracting color features, for example by creating a color histogram
+    > to represent the frequency with which each color appears in the
+    > image.
+
+    -   These features are translation, scale, and rotation invariant
+
+    -   However, they are not occlusion invariant
+
+-   Using features that capture the object’s shape
+
+    -   These features are also translation and rotation invariant, but
+        > not occlusion invariant
+
+-   Extracting features that capture *local* shape
+
+    -   This can be done with keypoint detection, followed by extracting
+        > the shape of each keypoint
+
+    -   Such features are only translation and scale invariant
+
+-   Using filter banks to extract texture-based features
+
+    -   The resulting features are translation invariant
 
 **Test Image Classification**
 
-When training is complete and features have been extracted, the trained classifier is then used to classify each new test image.
+When training is complete and features have been extracted, the trained
+classifier is then used to classify each new test image.
 
--For example, if nearest-neighbor is used, the test image will be classified with the same label as its closest neighbor in the training set. In the example below, the test image would be classified as a blue square:
-
-![](RackMultipart20201030-4-6br838_html_30d1cab23f8251c1.png)
+> -For example, if nearest-neighbor is used, the test image will be
+> classified with the same label as its closest neighbor in the training
+> set. In the example below, the test image would be classified as a
+> blue square:
+>
+> <img src="media/image36.png" style="width:3.67188in;height:1.54075in" />
 
 **Performance Evaluation**
 
-After labeling the testing examples using the classifier, we can evaluate the algorithm&#39;s performance.
+After labeling the testing examples using the classifier, we can
+evaluate the algorithm’s performance.
 
--We do so by calculating the percentage of correctly classified images from the testing set.
-
--Classification accuracy for certain images can vary significantly based on the feature extraction method used.
+> -We do so by calculating the percentage of correctly classified images
+> from the testing set.
+>
+> -Classification accuracy for certain images can vary significantly
+> based on the feature extraction method used.
