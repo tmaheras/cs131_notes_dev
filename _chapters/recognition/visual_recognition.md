@@ -12,9 +12,9 @@ Table of Contents
 **12.1 Introduction to Object Recognition**
 -------------------------------------------
 
-> 12.1.1 Visual Recognition Tasks and Applications
+  12.1.1 Visual Recognition Tasks and Applications
 >
-> 12.1.2 Challenges
+  12.1.2 Challenges
 
 **12.2 k-Nearest Neighbors**
 ----------------------------
@@ -23,11 +23,11 @@ Table of Contents
 
 12.2.2 Classification
 
-> 12.2.3 Nearest Neighbors Classifier
+  12.2.3 Nearest Neighbors Classifier
 >
-> 12.2.4 K-Nearest Neighbors Algorithm
+  12.2.4 K-Nearest Neighbors Algorithm
 >
-> 12.2.5 K-Nearest Neighbors Challenges
+  12.2.5 K-Nearest Neighbors Challenges
 
 -   Choosing k
 
@@ -35,7 +35,7 @@ Table of Contents
 
 -   Curse of Dimensionality
 
-> 12.2.5 Bias and Variance
+  12.2.5 Bias and Variance
 
 -   Generalization
 
@@ -45,20 +45,20 @@ Table of Contents
 
 -   No Free Lunch Theorem
 
-> 12.2.6 Machine Learning Method Final Tips
+  12.2.6 Machine Learning Method Final Tips
 
 **12.3 A Simple Object Recognition Pipeline**
 ---------------------------------------------
 
-> 12.3.1 A Simple Image Classifier
+  12.3.1 A Simple Image Classifier
 >
-> 12.3.2 Pipeline
+  12.3.2 Pipeline
 >
-> 12.3.3 Feature Extraction
+  12.3.3 Feature Extraction
 >
-> 12.3.4 Test Image Classification
+  12.3.4 Test Image Classification
 >
-> 12.3.5 Performance Evaluation
+  12.3.5 Performance Evaluation
 
 References:
 
@@ -146,7 +146,7 @@ challenges include:
     in the image and instances of the same object category may vary
     greatly in size
 
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image38.png" style="width:1.72396in;height:2.30255in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image38.png" style="width:1.72396in;height:2.30255in" />
 
 1.  **Deformation:** An object may have certain characteristics that
     make its body not rigid which may result in the object’s shape or
@@ -164,7 +164,7 @@ challenges include:
     background, it is difficult to segment and accurately classify the
     object
 
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image44.png" style="width:2.33333in;height:2.76042in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image44.png" style="width:2.33333in;height:2.76042in" />
 
 1.  **Intra-Class Variation:** Instances within the same class can look
     quite different from each other and the computer vision algorithms
@@ -267,18 +267,18 @@ is a 3D analogue of the 2D version above.
 
 -   Euclidean distance:
 
-> [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image35.png" style="width:2.04167in;height:0.61111in" />](https://www.codecogs.com/eqnedit.php?latex=d(x_n%2Cx_m)%20%3D%20%5Csqrt%7B%5Csum_%7Bj%3D1%7D%5E%7BD%7D%20(x_n%5Ej%20-%20x_m%5Ej)%7D#0)
+  [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image35.png" style="width:2.04167in;height:0.61111in" />](https://www.codecogs.com/eqnedit.php?latex=d(x_n%2Cx_m)%20%3D%20%5Csqrt%7B%5Csum_%7Bj%3D1%7D%5E%7BD%7D%20(x_n%5Ej%20-%20x_m%5Ej)%7D#0)
 
 Consider the following as training samples.
 
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image11.png" style="width:2.86864in;height:2.39658in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image11.png" style="width:2.86864in;height:2.39658in" />
 
 So if
 [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image3.png" style="width:0.375in;height:0.11111in" />](https://www.codecogs.com/eqnedit.php?latex=k%20%3D%201#0),
 and black point is our test sample, we select the closest neighbor and
 assign it a classification of red cross:
 
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image20.png" style="width:3.07813in;height:2.70323in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image20.png" style="width:3.07813in;height:2.70323in" />
 
 Similarly, if
 [<img src="{{ site.baseurl }}/assets/images/mediaFINAL/image9.png" style="width:0.375in;height:0.125in" />](https://www.codecogs.com/eqnedit.php?latex=k%20%3D%203#0),
@@ -287,7 +287,7 @@ red crosses we select the classification with the most common label. In
 this case there’s 3 green circles and 1 red cross so we assign a
 classification of green circle this time.
 
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image22.png" style="width:2.5096in;height:2.20246in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image22.png" style="width:2.5096in;height:2.20246in" />
 
 **<u>12.2.5 k-Nearest Neighbors Challenges:</u>**
 
@@ -314,9 +314,9 @@ Ex: Boundaries that can be obtained by changing the value of k from 1 to
 
 <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image40.png" style="width:6.05729in;height:2.75684in" />
 
-> Note that when k=1, the decision boundaries are highly complex.
-> Whereas when k=15, the boundaries are simpler. This is usually good
-> because it means they aren’t overly sensitive to noise in the data.
+  Note that when k=1, the decision boundaries are highly complex.
+  Whereas when k=15, the boundaries are simpler. This is usually good
+  because it means they aren’t overly sensitive to noise in the data.
 
 <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image47.png" style="width:4.93229in;height:3.50001in" />
 
@@ -363,7 +363,7 @@ Assume 5,000 points are uniformly distributed in the unit hypercube
 -   In 1 dimension, we must go a distance of 5/5000 = 0.001 on average
     to capture 5 nearest neighbors.
 
--   In 2 dimensions, we must go (0.001)<sup>1/2</sup> to get a square
+-   In 2 dimensions, we must go (0.001)<sup>1/2</sup  to get a square
     that contains 0.001 of the volume.
 
 -   In d dimensions, we must go (0.001)<sup>1/d</sup>.
@@ -385,7 +385,7 @@ be the best option depending on your data. The best model to use is the
 one that best generalizes from the data it was trained on to a new test
 set.
 
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image13.png" style="width:4.7389in;height:2.88677in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image13.png" style="width:4.7389in;height:2.88677in" />
 
 We must ask, given a training set of images for which I have labels that
 are known and a new test set for which to predict the labels, how well
@@ -431,7 +431,7 @@ Suppose we are fitting an equation to the red points in this plot:
 
 -   What models can best fit the true equation?
 
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image28.png" style="width:4.22396in;height:2.68039in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image28.png" style="width:4.22396in;height:2.68039in" />
 
 -   Linear model?
 
@@ -445,12 +445,12 @@ Suppose we are fitting an equation to the red points in this plot:
 
 -   Underfitting
 
-> *A model with too few parameters is INACCURATE because of a LARGE
-> bias.*
+  *A model with too few parameters is INACCURATE because of a LARGE
+  bias.*
 >
-> *It doesn’t have enough flexibility or capacity to fit the data.*
+  *It doesn’t have enough flexibility or capacity to fit the data.*
 >
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image26.png" style="width:4.14089in;height:2.54924in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image26.png" style="width:4.14089in;height:2.54924in" />
 
 -   High degree polynomial model:
 
@@ -460,9 +460,9 @@ Suppose we are fitting an equation to the red points in this plot:
 
     -   **Overfitting**
 
-> *A model with too MANY parameters is INACCURATE because of a large
-> variance. It is too sensitive to the specific training set we are
-> using, and therefore has a very large variance.*
+  *A model with too MANY parameters is INACCURATE because of a large
+  variance. It is too sensitive to the specific training set we are
+  using, and therefore has a very large variance.*
 
 **<u>Bias versus Variance Tradeoff</u>**
 
@@ -545,9 +545,9 @@ choosing!*
 For this example of an object recognition pipeline, we will use a simple
 image classifier.
 
-> -We therefore will be using a prediction function that takes feature
-> representations of images as inputs and yields classifications of
-> their contents as outputs.
+  -We therefore will be using a prediction function that takes feature
+  representations of images as inputs and yields classifications of
+  their contents as outputs.
 
 **<u>12.3.2 Pipeline</u>**
 
@@ -605,22 +605,23 @@ from training and testing images:
 When training is complete and features have been extracted, the trained
 classifier is then used to classify each new test image.
 
-> -For example, if nearest-neighbor is used, the test image will be
-> classified with the same label as its closest neighbor in the training
-> set. In the example below, the test image would be classified as a
-> blue square:
+  -For example, if nearest-neighbor is used, the test image will be
+  classified with the same label as its closest neighbor in the training
+  set. In the example below, the test image would be classified as a
+  blue square:
 >
-> <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image30.png" style="width:3.67188in;height:1.54075in" />
+  <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image30.png" style="width:3.67188in;height:1.54075in" />
 
 **<u>12.3.5 Performance Evaluation</u>**
 
 After labeling the testing examples using the classifier, we can
 evaluate the algorithm’s performance.
 
-> -We do so by calculating the percentage of correctly classified images
-> from the testing set.
+  -We do so by calculating the percentage of correctly classified images
+  from the testing set.
 >
-> -Classification accuracy for certain images can vary significantly
-> based on the feature extraction method used.
+  -Classification accuracy for certain images can vary significantly
+  based on the feature extraction method used.
+
 
 
