@@ -13,7 +13,7 @@ Table of Contents
 -------------------------------------------
 
   12.1.1 Visual Recognition Tasks and Applications
->
+
   12.1.2 Challenges
 
 **12.2 k-Nearest Neighbors**
@@ -24,9 +24,9 @@ Table of Contents
 12.2.2 Classification
 
   12.2.3 Nearest Neighbors Classifier
->
+
   12.2.4 K-Nearest Neighbors Algorithm
->
+
   12.2.5 K-Nearest Neighbors Challenges
 
 -   Choosing k
@@ -51,13 +51,13 @@ Table of Contents
 ---------------------------------------------
 
   12.3.1 A Simple Image Classifier
->
+
   12.3.2 Pipeline
->
+
   12.3.3 Feature Extraction
->
+
   12.3.4 Test Image Classification
->
+
   12.3.5 Performance Evaluation
 
 References:
@@ -447,9 +447,9 @@ Suppose we are fitting an equation to the red points in this plot:
 
   *A model with too few parameters is INACCURATE because of a LARGE
   bias.*
->
+
   *It doesn’t have enough flexibility or capacity to fit the data.*
->
+
   <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image26.png" style="width:4.14089in;height:2.54924in" />
 
 -   High degree polynomial model:
@@ -609,7 +609,7 @@ classifier is then used to classify each new test image.
   classified with the same label as its closest neighbor in the training
   set. In the example below, the test image would be classified as a
   blue square:
->
+
   <img src="{{ site.baseurl }}/assets/images/mediaFINAL/image30.png" style="width:3.67188in;height:1.54075in" />
 
 **<u>12.3.5 Performance Evaluation</u>**
@@ -619,9 +619,10 @@ evaluate the algorithm’s performance.
 
   -We do so by calculating the percentage of correctly classified images
   from the testing set.
->
+
   -Classification accuracy for certain images can vary significantly
   based on the feature extraction method used.
+
 
 
 
